@@ -3,5 +3,9 @@
 {% block body %}
 
     <h1>list page</h1>
+    
+    {% for post in posts %}
+        {% include 'posts/_post.html' %}
+    {% endfor %}
 
 {% endblock %}

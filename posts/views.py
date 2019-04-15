@@ -16,3 +16,14 @@ def create(request):
     else:
         form = PostForm()
     return render(request, 'posts/form.html', {'form':form})
+    
+def update(request, id):
+    post = Post.objects.get(id=id)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect("posts:list")
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'posts/form.html', {'form':form})

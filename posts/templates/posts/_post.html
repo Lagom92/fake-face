@@ -3,5 +3,8 @@
   <div class="card-body">
     <h5 class="card-title">title</h5>
     <p class="card-text">{{post.content}}</p>
+    <a href="{% url "posts:update" post.id %}" class="btn btn-primary btn-sm">수정</a>
+    <a href="{% url "posts:delete" post.id %}" class="btn btn-danger btn-sm">삭제</a>
+
   </div>
 </div>
